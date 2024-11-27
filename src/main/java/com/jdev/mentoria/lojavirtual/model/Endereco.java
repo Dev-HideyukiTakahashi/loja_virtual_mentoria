@@ -1,6 +1,10 @@
 package com.jdev.mentoria.lojavirtual.model;
 
+import com.jdev.mentoria.lojavirtual.model.enums.TipoEndereco;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,11 +28,14 @@ public class Endereco {
   @ManyToOne
   private Pessoa pessoa;
 
+  @Enumerated(EnumType.STRING)
+  private TipoEndereco tipoEndereco;
+
   public Endereco() {
   }
 
-  public Endereco(String rua, String cep, String numero, String complemento, String bairro, String uf,
-      String cidade, Pessoa pessoa) {
+  public Endereco(String rua, String cep, String numero, String complemento, String bairro, String uf, String cidade,
+      Pessoa pessoa, TipoEndereco tipoEndereco) {
     this.rua = rua;
     this.cep = cep;
     this.numero = numero;
@@ -37,6 +44,7 @@ public class Endereco {
     this.uf = uf;
     this.cidade = cidade;
     this.pessoa = pessoa;
+    this.tipoEndereco = tipoEndereco;
   }
 
   public String getRua() {
@@ -117,6 +125,14 @@ public class Endereco {
     int result = 1;
     result = prime * result + ((id == null) ? 0 : id.hashCode());
     return result;
+  }
+
+  public TipoEndereco getTipoEndereco() {
+    return tipoEndereco;
+  }
+
+  public void setTipoEndereco(TipoEndereco tipoEndereco) {
+    this.tipoEndereco = tipoEndereco;
   }
 
   @Override
