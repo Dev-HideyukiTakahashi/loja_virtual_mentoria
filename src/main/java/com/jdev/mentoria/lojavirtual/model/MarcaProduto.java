@@ -14,7 +14,7 @@ public class MarcaProduto {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String nomeDec;
+  private String nomeDesc;
 
   public Long getId() {
     return id;
@@ -24,12 +24,12 @@ public class MarcaProduto {
     this.id = id;
   }
 
-  public String getNomeDec() {
-    return nomeDec;
+  public String getNomeDesc() {
+    return nomeDesc;
   }
 
-  public void setNomeDec(String nomeDec) {
-    this.nomeDec = nomeDec;
+  public void setNomeDesc(String nomeDesc) {
+    this.nomeDesc = nomeDesc;
   }
 
 }
