@@ -7,19 +7,19 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "marca_produto")
-public class MarcaProduto {
+@Table(name = "categoria_produto")
+public class CategoriaProduto {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String nomeDesc;
+  String nomeDesc;
 
-  public MarcaProduto() {
+  public CategoriaProduto() {
   }
 
-  public MarcaProduto(String nomeDesc) {
+  public CategoriaProduto(String nomeDesc) {
     this.nomeDesc = nomeDesc;
   }
 
@@ -55,7 +55,7 @@ public class MarcaProduto {
       return false;
     if (getClass() != obj.getClass())
       return false;
-    MarcaProduto other = (MarcaProduto) obj;
+    CategoriaProduto other = (CategoriaProduto) obj;
     if (id == null) {
       if (other.id != null)
         return false;
