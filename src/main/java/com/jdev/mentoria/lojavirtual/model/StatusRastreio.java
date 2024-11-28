@@ -1,9 +1,13 @@
 package com.jdev.mentoria.lojavirtual.model;
 
+import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class StatusRastreio {
@@ -16,6 +20,10 @@ public class StatusRastreio {
   private String cidade;
   private String estado;
   private String status;
+
+  @ManyToOne
+  @JoinColumn(foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "venda_compra_loja_virtual_fk"))
+  private VendaCompraLojaVirtual vendaCompraLojaVirtual;
 
   public StatusRastreio() {
   }
@@ -65,6 +73,14 @@ public class StatusRastreio {
 
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  public VendaCompraLojaVirtual getVendaCompraLojaVirtual() {
+    return vendaCompraLojaVirtual;
+  }
+
+  public void setVendaCompraLojaVirtual(VendaCompraLojaVirtual vendaCompraLojaVirtual) {
+    this.vendaCompraLojaVirtual = vendaCompraLojaVirtual;
   }
 
   @Override

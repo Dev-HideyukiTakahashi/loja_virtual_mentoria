@@ -1,10 +1,14 @@
 package com.jdev.mentoria.lojavirtual.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class NotaFiscalVenda {
@@ -22,6 +26,10 @@ public class NotaFiscalVenda {
 
   @Column(columnDefinition = "TEXT")
   private String pdf;
+
+  @OneToOne
+  @JoinColumn(foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "venda_compra_loja_virtual_fk"))
+  private VendaCompraLojaVirtual vendaCompraLojaVirtual;
 
   public NotaFiscalVenda() {
   }
