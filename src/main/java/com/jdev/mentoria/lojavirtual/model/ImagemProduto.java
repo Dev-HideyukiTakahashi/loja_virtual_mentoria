@@ -15,7 +15,7 @@ public class ImagemProduto {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Long id;
+  private Long id;
 
   @Column(columnDefinition = "text")
   private String imagemOriginal;

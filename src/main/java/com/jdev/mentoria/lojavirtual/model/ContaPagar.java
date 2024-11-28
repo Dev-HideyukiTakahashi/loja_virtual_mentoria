@@ -20,7 +20,7 @@ public class ContaPagar {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Long id;
+  private Long id;
 
   private String descricao;
 
