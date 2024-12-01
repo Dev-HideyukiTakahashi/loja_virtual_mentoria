@@ -2,6 +2,7 @@ package com.jdev.mentoria.lojavirtual.model;
 
 import org.springframework.security.core.GrantedAuthority;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +15,7 @@ public class Acesso implements GrantedAuthority {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @Column(nullable = false)
   private String descricao; // Acesso ex: ROLE_ADMIN, ROLE_USER, ROLE_SECRETARIO . . .
 
   public Acesso() {

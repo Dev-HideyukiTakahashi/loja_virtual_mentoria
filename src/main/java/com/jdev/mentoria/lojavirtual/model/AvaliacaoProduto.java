@@ -15,7 +15,7 @@ public class AvaliacaoProduto {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-
+  private String descricao;
   private Integer nota;
 
   @ManyToOne
@@ -29,7 +29,8 @@ public class AvaliacaoProduto {
   public AvaliacaoProduto() {
   }
 
-  public AvaliacaoProduto(Integer nota, Pessoa pessoa, Produto produto) {
+  public AvaliacaoProduto(String descricao, Integer nota, Pessoa pessoa, Produto produto) {
+    this.descricao = descricao;
     this.nota = nota;
     this.pessoa = pessoa;
     this.produto = produto;
@@ -65,6 +66,14 @@ public class AvaliacaoProduto {
 
   public void setProduto(Produto produto) {
     this.produto = produto;
+  }
+
+  public String getDescricao() {
+    return descricao;
+  }
+
+  public void setDescricao(String descricao) {
+    this.descricao = descricao;
   }
 
   @Override

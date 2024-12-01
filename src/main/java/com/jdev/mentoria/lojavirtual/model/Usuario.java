@@ -17,6 +17,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -39,6 +40,10 @@ public class Usuario implements UserDetails {
   @JoinTable(name = "usuarios_acessos", uniqueConstraints = @UniqueConstraint(columnNames = { "usuario_id",
       "acesso_id" }, name = "unique_acesso_user"), joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id", table = "usuario", unique = false, foreignKey = @ForeignKey(name = "usuario_fk", value = ConstraintMode.CONSTRAINT)), inverseJoinColumns = @JoinColumn(name = "acesso_id", unique = false, referencedColumnName = "id", table = "acesso", foreignKey = @ForeignKey(name = "acesso_fk", value = ConstraintMode.CONSTRAINT)))
   private List<Acesso> acessos = new ArrayList<>();
+
+  @ManyToOne
+  @JoinColumn(foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "pessoa_fk"))
+  private Pessoa pessoa;
 
   /* Autoridades são acessos ou roles */
   @Override
@@ -75,6 +80,14 @@ public class Usuario implements UserDetails {
   @Override
   public boolean isEnabled() {
     return true;
+  }
+
+  public Pessoa getPessoa() {
+    return pessoa;
+  }
+
+  public void setPessoa(Pessoa pessoa) {
+    this.pessoa = pessoa;
   }
 
 }
