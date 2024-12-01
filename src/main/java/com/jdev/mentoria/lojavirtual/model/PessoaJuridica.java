@@ -1,6 +1,6 @@
 package com.jdev.mentoria.lojavirtual.model;
 
-import jakarta.persistence.Entity;
+import javax.persistence.Entity;
 
 @Entity
 public class PessoaJuridica extends Pessoa {

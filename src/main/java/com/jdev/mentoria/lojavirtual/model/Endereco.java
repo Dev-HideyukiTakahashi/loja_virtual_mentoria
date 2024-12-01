@@ -1,14 +1,14 @@
 package com.jdev.mentoria.lojavirtual.model;
 
-import com.jdev.mentoria.lojavirtual.model.enums.TipoEndereco;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import com.jdev.mentoria.lojavirtual.model.enums.TipoEndereco;
 
 @Entity
 public class Endereco {
